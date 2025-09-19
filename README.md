@@ -12,3 +12,6 @@ Sistema para a administração de jogos de bingo.
 ## Tecnologias
 - Front-end: React e Vite.
 
+## Link
+- https://bingo-driven-front-end-phi.vercel.app/
+
