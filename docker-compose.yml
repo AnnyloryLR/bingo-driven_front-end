@@ -1,0 +1,48 @@
+services:
+  postgres:
+    image: postgres
+    container_name: alr_postgres
+    ports:
+      - 5433:5432
+    networks:
+      - alr_network
+    env_file:
+      - backend/.env
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -q -d alr_database -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+  backend:
+    image: backend
+    container_name: alr_backend
+    build: backend/
+    ports:
+      - 5000:5000
+    networks:
+      - alr_network
+    env_file:
+      - backend/.env
+    depends_on:
+      - postgres:
+        condition: service_healthy
+  
+  frontend:
+    image: frontend
+    build: frontend/
+    ports:
+      - 8080:80
+    networks:
+      - alr_network
+    depends_on:
+      - backend
+  pgadmin:
+    image: dpage/admin4
+    container_name: alr_pgadmin
+    ports:
+      - alr_network
+    networks:
+      - alr_network
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=annylory@gmail.com
+      - PGADMIN_DEFAULT_PASSWORD=postgres
