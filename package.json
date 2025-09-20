@@ -1,0 +1,42 @@
+{
+  "name": "bingo-driven_front-end",
+  "version": "1.0.0",
+  "description": "Sistema para a administração de jogos de bingo.",
+  "homepage": "https://github.com/AnnyloryLR/bingo-driven_front-end#readme",
+  "bugs": {
+    "url": "https://github.com/AnnyloryLR/bingo-driven_front-end/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnnyloryLR/bingo-driven_front-end.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "eslint.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.36.0",
+    "@types/react": "^19.1.13",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react": "^4.7.0",
+    "eslint": "^9.36.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^16.4.0",
+    "vite": "^6.3.6"
+  },
+  "dependencies": {
+    "axios": "^1.12.2",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-router-dom": "^7.9.1"
+  }
+}
