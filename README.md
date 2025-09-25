@@ -15,6 +15,9 @@ Sistema para a administração de jogos de bingo.
 ## Link
 - https://bingo-driven-front-end-orpin.vercel.app/
 
+## Nome da imagem
+- annylory/bingo-driven_frontend
+
 ## Usando o Docker para rodar o projeto manualmente
 Os passos para subir manualmente são:
 - Implementação do "Dockerfile" na raiz do projeto;
