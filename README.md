@@ -28,13 +28,15 @@ Os passos para subir manualmente são:
     > <nome da imagem>
 
 ## Usando o Docker Compose para rodar somente o front-end
+- Faça o build da imagem: docker build -t frontend .
+
 O docker compose permite a automatização do processo para rodar o projeto através da criação do arquivo "docker-compose.yml", nesse caso, subiremos somente o front-end:
 
     services:
         <nome do serviço de front-end>:
-            image: annylory/bingo-driven_frontend
+            image: frontend
             container_name: <nome do container>
-            build: annylory/bingo-driven_frontend/
+            build: frontend/
             ports:
               - 8000:80 (porta padrão de tráfego web)
             networks:
