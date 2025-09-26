@@ -21,11 +21,7 @@ Os passos para subir manualmente são:
 - Realizar o build da imagem:
     $ docker build -t <nome da imagem> .
 - Subir o front-end em um container:
-    $ docker run -d \
-    > --name <nome do container> \
-    > --network <nome da rede> \
-    > -p 8000:80 \
-    > <nome da imagem>
+    $ docker run -d --name <nome do container> --network <nome da rede> -p 8000:80 <nome da imagem>
 
 ## Usando o Docker Compose para rodar somente o front-end
 - Faça o build da imagem: docker build -t frontend .
