@@ -19,48 +19,30 @@ Sistema para a administração de jogos de bingo.
 Os passos para subir manualmente são:
 - Implementação do "Dockerfile" na raiz do projeto;
 - Realizar o build da imagem:
-    $ docker build -t <nome da imagem>
-- Criar uma rede para comunicação dos containers:
-    $ docker network create <nome da rede>
-- Criar um volume:
-    $ docker volume create <nome do volume>
-- Subir o banco de dados em container, neste caso o Postgres:
-    $ docker run -d \
-    > --name <nome do container> \
-    > --network <nome da rede> \
-    > -e POSTGRES_PASSWORD=<senha de escolha> \
-    > -p 5433:5432 \
-    > postgres
-- Subir o back-end em um container:
-    $ docker run -d \
-    > --name <nome do container> \
-    > --network <nome da rede> \
-    > -p 4000:4000 \
-    > <nome da imagem>
+    $ docker build -t <nome da imagem> .
 - Subir o front-end em um container:
     $ docker run -d \
     > --name <nome do container> \
     > --network <nome da rede> \
     > -p 8000:80 \
-    > postgres
+    > <nome da imagem>
 
 ## Usando o Docker Compose para rodar somente o front-end
 O docker compose permite a automatização do processo para rodar o projeto através da criação do arquivo "docker-compose.yml", nesse caso, subiremos somente o front-end:
 
     services:
         <nome do serviço de front-end>:
-            image: <nome da imagem>
+            image: annylory/bingo-driven_frontend
             container_name: <nome do container>
-            build: bingo-driven_front-end/
+            build: annylory/bingo-driven_frontend/
             ports:
               - 8000:80 (porta padrão de tráfego web)
             networks:
-              - <nome da rede>
-            depends_on:
-            - <nome de serviço back-end>
+              - <nome da rede do backend>
+        
     networks:
-        <nome da rede>:
-            name: <nome da rede>
+        <nome da rede do backend>:
+            external: true
 
     volumes:
         <nome do volume>:

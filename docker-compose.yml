@@ -1,8 +1,8 @@
 services:
   frontend:
-    image: frontend
+    image: annylory/bingo-driven_frontend
     container_name: alr_frontend
-    build: bingo-driven_front-end/
+    build: annylory/bingo-driven_frontend/
     ports:
       - 8080:80
     networks:
