@@ -19,9 +19,9 @@ Sistema para a administração de jogos de bingo.
 Os passos para subir manualmente são:
 - Implementação do "Dockerfile" na raiz do projeto;
 - Realizar o build da imagem:
-    $ docker build -t <nome da imagem> .
+    $ docker build -t nomedaimagem .
 - Subir o front-end em um container:
-    $ docker run -d --name <nome do container> --network <nome da rede> -p 8000:80 <nome da imagem>
+    $ docker run -d --name nomedocontainer --network nomedarede -p 8000:80 nomedaimagem
 
 ## Usando o Docker Compose para rodar somente o front-end
 - Faça o build da imagem: docker build -t frontend .
@@ -34,7 +34,7 @@ O docker compose permite a automatização do processo para rodar o projeto atra
             container_name: <nome do container>
             build: frontend/
             ports:
-              - 8000:80 (porta padrão de tráfego web)
+              - 8000:80 #porta padrão de tráfego web
             networks:
               - <nome da rede do backend>
         
